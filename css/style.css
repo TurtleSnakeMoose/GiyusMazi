@@ -93,7 +93,7 @@ form input[Type='time']{
 	text-align: center;
 }
 
-button[type="submit"]{
+.div_btn input{
 	margin: 20px 0;
 	background-color: #0b7e61;
 	border-color: #0b7e61;

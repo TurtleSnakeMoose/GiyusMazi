@@ -79,7 +79,8 @@ giyus.util.generateTableRows = function (fields) {
     $.each(fields, function (i, field){
         rows += `
             <tr>
-                <td style="font-weight:bold;padding: 5px 3px;border: 1px solid lightgrey;">${field.Name}:</td><td>${field.Value}</td>
+                <td style="font-weight:bold;padding: 5px 3px;border: 1px solid lightgrey;">${field.Name}:</td>
+                <td style="padding: 5px 3px;border: 1px solid lightgrey;">${field.Value}</td>
             </tr>
         `;
     });
@@ -87,19 +88,18 @@ giyus.util.generateTableRows = function (fields) {
     return rows;
 }
 
-giyus.util.sendEmail = function (form){
-    
-    var subject = giyus.util.buildSubject(form);
-    var body = giyus.util.buildBody(form);
+giyus.util.sendEmail = function (subject,body){
 
-    Email.send({
-        SecureToken : "5f8b19b8-e9a1-48fe-a6b0-8b584275d23d",
-        To : 'giyus.mazi@gmail.com',
-        From : "giyus.mazi@gmail.com",
-        Subject : subject,
-        Body : body
-    }).then(
-      message => alert('הטופס נשלח, תודה רבה!')
-    );
+        Email.send({
+            SecureToken : "5f8b19b8-e9a1-48fe-a6b0-8b584275d23d",
+            To : 'giyus.mazi@gmail.com',
+            From : "giyus.mazi@gmail.com",
+            Subject : subject,
+            Body : body
+        }).then(
+          message => alert('הטופס נשלח, תודה רבה!')
+        );
+
+    
 }
 
