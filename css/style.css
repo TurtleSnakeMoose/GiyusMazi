@@ -1,0 +1,103 @@
+*{
+	box-sizing: border-box;
+}
+
+/* For mobile phones: */
+[class*="col-"] {
+	width: 100%;
+}
+  
+@media only screen and (min-width: 768px) {
+/* For desktop: */
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+}
+
+body{
+	direction: rtl;
+}
+
+p.lead{
+	margin: 0;
+}
+
+form{
+	text-align: start;
+	margin-top: 50px;
+}
+
+.dtp > .dtp-content {
+	right: 7vw;
+    top: 11vh;
+}
+
+.form-group label{
+	margin-bottom: .1rem;
+}
+
+.form-check-inline {
+	flex-direction: column;
+}
+
+.form-check-label{
+	margin-left: 24px;
+}
+
+.form-check-input {
+	margin-left: 30px !important;
+}
+
+.jumbotron {
+	background-color: #0b7e61;
+	padding: 2rem 2rem;
+	position: relative;
+	color: white;
+}
+
+#jumbotron_title{
+	font-size: 2.4rem;
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+#jumbotron_p{
+	margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.portionTitle {
+	font-weight: 600;
+    font-size: 1.3em;
+    color: #124888;
+}
+
+.div_btn{
+	text-align: center;
+}
+
+button[type="submit"]{
+	margin: 20px 0;
+	background-color: #0b7e61;
+	border-color: #0b7e61;
+}
+
+
+#logo_mazi{
+    width: 110px;
+    float: right;
+    position: absolute;
+    bottom: -40px;
+    right: -30px;
+}
+
+

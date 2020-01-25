@@ -1,0 +1,172 @@
+<!doctype html>
+
+<html lang="en">
+	<head>
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	  <title>GiyusMazi</title>
+	  <meta name="author" content="Michael Roskin">
+	  
+	  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
+	  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	  <link href="css/style.css" rel="stylesheet">
+
+	  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+	  <script src="https://smtpjs.com/v3/smtp.js"></script>
+	  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+
+	  <script src="js/site.js"></script>
+	</head>
+
+<body>
+	<div class="jumbotron jumbotron-fluid">
+		<div class="container">
+			<img id="logo_mazi" src="img/logo.png">
+			<h1 id="jumbotron_title">סיכום ביקור גיוס</h1>
+			<p id="jumbotron_p">
+				כאן יוצג טקסט הסבר שיסופק לי בעתיד ע"י פופה.
+			</p>
+		</div>
+	</div>
+
+	<div class="container">
+		<form>
+<!------------------------------------------------------------------------------------{ INTERVIEWER }------------------->				  
+				<span class="portionTitle">פרטי המבקר :</span>
+
+				<div class="form-group">
+				  <label for="viewer_personalNum">מספר אישי</label>
+				  <input type="number" maxlength="9" class="form-control" id="viewer_personalNum">
+				</div>
+
+				<div class="form-group">
+				  <label for="viewer_fullName">שם מלא</label>
+				  <input type="text" class="form-control" id="viewer_fullName">
+				</div>
+				
+				<div class="form-group">
+					<label for="viewer_rank">דרגה</label>
+					<select class="form-control" id="viewer_rank">
+						<option>טוראי</option>
+						<option>רב"ט</option>
+						<option>סמל</option>
+						<option>סמ"ר</option>
+						<option>רס"ל</option>
+						<option>רס"ר</option>
+						<option>רס"ם</option>
+						<option>רנ"ג</option>
+						<option>סג"ם</option>
+						<option>סגן</option>
+						<option>סרן</option>
+						<option>רס"ן</option>
+						<option>סא"ל</option>
+					</select>
+				</div>
+
+				<div class="form-group">
+					<label for="viewer_unit">יחידה</label>
+					<input type="text" class="form-control" id="viewer_unit">
+				</div>
+
+<!------------------------------------------------------------------------------------{ INTERVIEWEE }------------------->				  
+				<span class="portionTitle">פרטי המלש"ב :</span>
+
+				<div class="form-group">
+					<label for="viewee_identification">ת"ז</label>
+					<input type="number" maxlength="9" class="form-control" id="viewee_identification">
+				  </div>
+  
+				  <div class="form-group">
+					<label for="viewee_fullName">שם מלא</label>
+					<input type="text" class="form-control" id="viewee_fullName">
+				  </div>
+
+				  <div class="form-group">
+					<label for="viewee_destination">יעד המלש"ב</label>
+					<select class="form-control" id="viewee_destination">
+						<option>גולני</option>
+						<option>גבעתי</option>
+						<option>נחל</option>
+						<option>כפיר</option>
+						<option>צנחנים</option>
+						<option>שריון</option>
+						<option>פלמ"ס שריון</option>
+						<option>הנדסה קרבית</option>
+						<option>תותחנים</option>
+						<option>איסוף קרבי</option>
+						<option>חי"ר גבולות</option>
+					</select>
+				  </div>
+
+<!------------------------------------------------------------------------------------{ VISIT SUMMARY }------------------->				  				
+				  
+				<span class="portionTitle">סיכום ראיון :</span>
+
+				<div class="form-group">
+					<label for="viewee_date">תאריך ביקור</label>
+					<input type="date" class="form-control datepicker" id="viewee_date">
+				</div>
+
+				<div class="form-group">
+					<label for="viewee_time">שעת ביקור</label>
+					<input type="time" class="form-control timepicker" id="viewee_time">
+				</div>
+
+				<div class="form-group">
+					<label for="viewee_visitDescription">תיאור הביקור</label>
+					<textarea class="form-control" id="viewee_visitDescription" rows="5"></textarea>
+				</div>
+
+				<div class="form-group">
+					<label>מוטיבציה ליעד לאחר הביקור</label><br>
+					<small>נמוכה מאוד - 1 | גבוהה מאוד - 5</small><br>
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="radio" name="inlineRadioOptions" id="viewee_motivation_1" value="1">
+						<label class="form-check-label" for="viewee_motivation_1">1</label>
+					</div>
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="radio" name="inlineRadioOptions" id="viewee_motivation_2" value="2">
+						<label class="form-check-label" for="viewee_motivation_2">2</label>
+					</div>
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="radio" name="inlineRadioOptions" id="viewee_motivation_3" value="3">
+						<label class="form-check-label" for="viewee_motivation_3">3</label>
+					</div>
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="radio" name="inlineRadioOptions" id="viewee_motivation_4" value="4">
+						<label class="form-check-label" for="viewee_motivation_4">4</label>
+					</div>
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="radio" name="inlineRadioOptions" id="viewee_motivation_5" value="5">
+						<label class="form-check-label" for="viewee_motivation_5">5</label>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="viewee_additionalNotes">הערות נוספות</label>
+					<textarea class="form-control" id="viewee_additionalNotes" rows="5"></textarea>
+				</div>
+
+			<div class="div_btn">
+				<button type="submit" class="btn btn-primary">שלח</button>
+			</div>
+
+		</form>
+	</div>
+</body>
+
+
+
+<script type="text/javascript">
+	$(function() {
+		// $('.datepicker').datepicker({
+		// 		dateFormat: 'dd/mm/yy' 
+		// });
+	});
+</script>
+
+</html>
