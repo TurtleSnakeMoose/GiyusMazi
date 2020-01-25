@@ -36,9 +36,11 @@ form{
 	margin-top: 50px;
 }
 
-.dtp > .dtp-content {
-	right: 7vw;
-    top: 11vh;
+form input[Type='date']{
+	text-align: center;
+}
+form input[Type='time']{
+	text-align: center;
 }
 
 .form-group label{
@@ -62,6 +64,7 @@ form{
 	padding: 2rem 2rem;
 	position: relative;
 	color: white;
+	text-align: start;
 }
 
 #jumbotron_title{
@@ -70,9 +73,14 @@ form{
     line-height: 1.2;
 }
 
-#jumbotron_p{
+.jumbotron_p{
 	margin-top: 0;
     margin-bottom: 1rem;
+}
+
+.bold_p {
+	font-weight: bold;
+	position: relative;
 }
 
 .portionTitle {

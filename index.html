@@ -19,16 +19,26 @@
 	  <script src="https://smtpjs.com/v3/smtp.js"></script>
 	  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
 
+	  <script src="js/util.js"></script>
+	  <script src="js/validate.js"></script>
 	  <script src="js/site.js"></script>
 	</head>
 
 <body>
 	<div class="jumbotron jumbotron-fluid">
 		<div class="container">
-			<img id="logo_mazi" src="img/logo.png">
+			<img onclick="giyus.util.fillForm()" id="logo_mazi" src="img/logo.png">
 			<h1 id="jumbotron_title">סיכום ביקור גיוס</h1>
-			<p id="jumbotron_p">
-				כאן יוצג טקסט הסבר שיסופק לי בעתיד ע"י פופה.
+			<p class="jumbotron_p">
+				חייל / מפקד יקר,<br>
+				נבחרת לקחת חלק בפרוייקט "דלת לדלת".<br>
+				מהות הפרוייקט היא יצירת קשר בין חייל בחטיבה לבין מלש"ב העתיד להתגייס במחזור הגיוס הקרוב לחטיבתך.<br>
+				נודה לך על העברת פרטי הביקור באמצעות אתר זה.<br>
+				שים לב - על מנת להבין את אפקטיביות הביקור והדברים שעלו מהלכו נשמח שתפרט על הביקור עד כמה שאפשר.
+			</p>
+			<p class="jumbotron_p bold_p">
+				תודה רבה על שיתוף הפעולה!
+				מדור גיוס זרוע היבשה
 			</p>
 		</div>
 	</div>
@@ -40,17 +50,20 @@
 
 				<div class="form-group">
 				  <label for="viewer_personalNum">מספר אישי</label>
-				  <input type="number" maxlength="9" class="form-control" id="viewer_personalNum">
+				  <input data-field-name='מספר אישי' type="number" maxlength="7" minlength="7" class="form-control" id="viewer_personalNum" onblur="giyus.validate.validateField($(this))" required>
+				  <div class="valid-feedback"></div><div class="invalid-feedback"></div>
 				</div>
 
 				<div class="form-group">
 				  <label for="viewer_fullName">שם מלא</label>
-				  <input type="text" class="form-control" id="viewer_fullName">
+				  <input data-field-name='שם מלא' type="text" class="form-control" id="viewer_fullName" onblur="giyus.validate.validateField($(this))" required>
+				  <div class="valid-feedback"></div><div class="invalid-feedback"></div>
 				</div>
 				
 				<div class="form-group">
 					<label for="viewer_rank">דרגה</label>
-					<select class="form-control" id="viewer_rank">
+					<select data-field-name='דרגה' type="dropdown" class="form-control" id="viewer_rank" onblur="giyus.validate.validateField($(this))" required>
+						<option selected disabled hidden>נא לבחור מתוך הרשימה</optiontype='dropdown'>
 						<option>טוראי</option>
 						<option>רב"ט</option>
 						<option>סמל</option>
@@ -65,11 +78,13 @@
 						<option>רס"ן</option>
 						<option>סא"ל</option>
 					</select>
+					<div class="valid-feedback"></div><div class="invalid-feedback"></div>
 				</div>
 
 				<div class="form-group">
 					<label for="viewer_unit">יחידה</label>
-					<input type="text" class="form-control" id="viewer_unit">
+					<input data-field-name='יחידה' type="text" class="form-control" id="viewer_unit" onblur="giyus.validate.validateField($(this))" required>
+					<div class="valid-feedback"></div><div class="invalid-feedback"></div>
 				</div>
 
 <!------------------------------------------------------------------------------------{ INTERVIEWEE }------------------->				  
@@ -77,17 +92,20 @@
 
 				<div class="form-group">
 					<label for="viewee_identification">ת"ז</label>
-					<input type="number" maxlength="9" class="form-control" id="viewee_identification">
+					<input data-field-name='ת"ז' type="number" maxlength="9" minlength="9" class="form-control" id="viewee_identification" onblur="giyus.validate.validateField($(this))" required>
+					<div class="valid-feedback"></div><div class="invalid-feedback"></div>
 				  </div>
   
 				  <div class="form-group">
 					<label for="viewee_fullName">שם מלא</label>
-					<input type="text" class="form-control" id="viewee_fullName">
+					<input data-field-name='שם מלא' type="text" class="form-control" id="viewee_fullName" onblur="giyus.validate.validateField($(this))" required>
+					<div class="valid-feedback"></div><div class="invalid-feedback"></div>
 				  </div>
 
 				  <div class="form-group">
 					<label for="viewee_destination">יעד המלש"ב</label>
-					<select class="form-control" id="viewee_destination">
+					<select data-field-name='יעד המלש"ב' type="dropdown" class="form-control" id="viewee_destination" onblur="giyus.validate.validateField($(this))" required>
+						<option value="" selected disabled hidden>נא לבחור מתוך הרשימה</option>
 						<option>גולני</option>
 						<option>גבעתי</option>
 						<option>נחל</option>
@@ -100,6 +118,7 @@
 						<option>איסוף קרבי</option>
 						<option>חי"ר גבולות</option>
 					</select>
+					<div class="valid-feedback"></div><div class="invalid-feedback"></div>
 				  </div>
 
 <!------------------------------------------------------------------------------------{ VISIT SUMMARY }------------------->				  				
@@ -108,12 +127,14 @@
 
 				<div class="form-group">
 					<label for="viewee_date">תאריך ביקור</label>
-					<input type="date" class="form-control datepicker" id="viewee_date">
+					<input data-field-name='תאריך ביקור' type="date" class="form-control datepicker" id="viewee_date" onblur="giyus.validate.validateField($(this))" required>
+					<div class="valid-feedback"></div><div class="invalid-feedback"></div>
 				</div>
 
 				<div class="form-group">
 					<label for="viewee_time">שעת ביקור</label>
-					<input type="time" class="form-control timepicker" id="viewee_time">
+					<input data-field-name='שעת ביקור' type="time" class="form-control timepicker" id="viewee_time" onblur="giyus.validate.validateField($(this))" required>
+					<div class="valid-feedback"></div><div class="invalid-feedback"></div>
 				</div>
 
 				<div class="form-group">
@@ -125,25 +146,26 @@
 					<label>מוטיבציה ליעד לאחר הביקור</label><br>
 					<small>נמוכה מאוד - 1 | גבוהה מאוד - 5</small><br>
 					<div class="form-check form-check-inline">
-						<input class="form-check-input" type="radio" name="inlineRadioOptions" id="viewee_motivation_1" value="1">
+						<input data-field-name='מוטיבציה ליעד לאחר הביקור' class="form-check-input" type="radio" name="inlineRadioOptions" id="viewee_motivation_1" value="1" onclick="giyus.validate.validateField($(this))" required>
 						<label class="form-check-label" for="viewee_motivation_1">1</label>
 					</div>
 					<div class="form-check form-check-inline">
-						<input class="form-check-input" type="radio" name="inlineRadioOptions" id="viewee_motivation_2" value="2">
+						<input data-field-name='מוטיבציה ליעד לאחר הביקור' class="form-check-input" type="radio" name="inlineRadioOptions" id="viewee_motivation_2" value="2" onclick="giyus.validate.validateField($(this))" required>
 						<label class="form-check-label" for="viewee_motivation_2">2</label>
 					</div>
 					<div class="form-check form-check-inline">
-						<input class="form-check-input" type="radio" name="inlineRadioOptions" id="viewee_motivation_3" value="3">
+						<input data-field-name='מוטיבציה ליעד לאחר הביקור' class="form-check-input" type="radio" name="inlineRadioOptions" id="viewee_motivation_3" value="3" onclick="giyus.validate.validateField($(this))" required>
 						<label class="form-check-label" for="viewee_motivation_3">3</label>
 					</div>
 					<div class="form-check form-check-inline">
-						<input class="form-check-input" type="radio" name="inlineRadioOptions" id="viewee_motivation_4" value="4">
+						<input data-field-name='מוטיבציה ליעד לאחר הביקור' class="form-check-input" type="radio" name="inlineRadioOptions" id="viewee_motivation_4" value="4" onclick="giyus.validate.validateField($(this))" required>
 						<label class="form-check-label" for="viewee_motivation_4">4</label>
 					</div>
 					<div class="form-check form-check-inline">
-						<input class="form-check-input" type="radio" name="inlineRadioOptions" id="viewee_motivation_5" value="5">
+						<input data-field-name='מוטיבציה ליעד לאחר הביקור' class="form-check-input" type="radio" name="inlineRadioOptions" id="viewee_motivation_5" value="5" onclick="giyus.validate.validateField($(this))" required>
 						<label class="form-check-label" for="viewee_motivation_5">5</label>
 					</div>
+					<div class="valid-feedback"></div><div class="invalid-feedback"></div>
 				</div>
 
 				<div class="form-group">
@@ -152,21 +174,11 @@
 				</div>
 
 			<div class="div_btn">
-				<button type="submit" class="btn btn-primary">שלח</button>
+				<button type="submit" class="btn btn-primary" onclick="giyus.site.submitForm($(this))">שלח</button>
 			</div>
 
 		</form>
 	</div>
 </body>
-
-
-
-<script type="text/javascript">
-	$(function() {
-		// $('.datepicker').datepicker({
-		// 		dateFormat: 'dd/mm/yy' 
-		// });
-	});
-</script>
 
 </html>
