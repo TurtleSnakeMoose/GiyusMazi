@@ -3,7 +3,7 @@ giyus.site = giyus.site || {};
 
 $(function (){
 
-	giyus.site.submitForm = function (submitBtn){
+	giyus.site.submitForm = function (submitBtn, formVariation){
 
 		var form = submitBtn.closest('form');
 

@@ -49,12 +49,26 @@ giyus.validate.validateField = function (input) {
     return formIsValid;
 }
 
+giyus.validate.validateCheckboxes = function (requiredCheckboxGroups){
+    var isValid = true;
+
+    $.each(requiredCheckboxGroups, function (i, group){
+        debugger;
+        var invalid_feedback = $(group).find('.invalid-feedback');
+        isChecked = $(group).find('input:checked').length > 0;
+        isValid = !isChecked ? false : isValid;
+        invalid_feedback.toggle(!isChecked);
+    });
+
+    return isValid;
+}
+
 giyus.validate.validateForm = function (form) {
     var isValid = true,
-        isMotivationChecked = form.find('input[type="radio"]:checked').length > 0,
+        requiredCheckboxGroups = form.find('.checkbox_group[required]'),
         requiredFields = form.find('input[type!="radio"], select');
 
-    isValid = isMotivationChecked;
+    isValid = giyus.validate.validateCheckboxes(requiredCheckboxGroups);
     
     $.each(requiredFields, function(i, field){
         isValid = giyus.validate.validateField($(field));
