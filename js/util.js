@@ -22,7 +22,7 @@ giyus.util.fillForm = function () {
 giyus.util.buildSubject = function (form) {
     var intervieeName = $('#viewee_fullName').val();
     var intervieeIdentification = $('#viewee_identification').val();
-    var subject = `סיכום ביקור בית - ${form.data('form-for') === 'apatzim' ? 'אפ"צ' : ''} - ${intervieeName} - ${intervieeIdentification}`;
+    var subject = `סיכום ביקור בית - ${form.data('form-for') === 'apatzim' ? 'עפ"צ' : ''} - ${intervieeName} - ${intervieeIdentification}`;
 
     return subject;
 }
